@@ -41,8 +41,7 @@ do
                FILENAME=`hostname -f`-`date +%b-%d-%Y-%H:%M:%S`-$DATABASE.sql
                $MYSQLDUMP --single-transaction --master-data=1 --ignore-table=mysql.event -h$MYSQL_HOST $DATABASE  > $BACKUP_PATH/mysql/$FILENAME
 
-              # $MYSQL_PATH/mysqldump --defaults-file=/etc/mysql/debian.cnf -A --add-drop-database --events --master-data=1 --single-transaction --quick 2> /tmp/backupfoutmelding > $BACKUP_PATH/mysql/$FILENA
-ME
+              # $MYSQL_PATH/mysqldump --defaults-file=/etc/mysql/debian.cnf -A --add-drop-database --events --master-data=1 --single-transaction --quick 2> /tmp/backupfoutmelding > $BACKUP_PATH/mysql/$FILENAME
                /bin/tar -czPf $BACKUP_PATH/mysql/$FILENAME.tar.gz $BACKUP_PATH/mysql/$FILENAME
                /bin/tar -tvPf $BACKUP_PATH/mysql/$FILENAME.tar.gz > $TAR_LOG
                if [ -s $TAR_LOG ]
